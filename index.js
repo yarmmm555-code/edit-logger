@@ -8,15 +8,7 @@
   const strip = (s) => (typeof s === "string" ? s.split(MARK)[0] : s);
 
   const render = (list) =>
-    MARK + "```diff\n" +
-    list
-      .map((h) =>
-        String(h).replace(/```/g, "'''").split("\n").map((l, i, a) =>
-          "- " + l + (i === a.length - 1 ? " (edited)" : "")
-        ).join("\n")
-      )
-      .join("\n") +
-    "\n```";
+    MARK + list.map((h) => String(h) + " (edited)").join("\n");
 
   exports.onLoad = () => {
     try {
