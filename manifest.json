@@ -3,6 +3,6 @@
   "description": "Shows the old text of edited messages",
   "authors": [{ "name": "You" }],
   "main": "index.js",
-  "hash": "1",
+  "hash": "3",
   "vendetta": { "icon": "ic_edit_24px" }
 }
