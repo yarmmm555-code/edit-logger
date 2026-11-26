@@ -1,0 +1,8 @@
+{
+  "name": "Edit Logger",
+  "description": "Shows the old text of edited messages",
+  "authors": [{ "name": "You" }],
+  "main": "index.js",
+  "hash": "1",
+  "vendetta": { "icon": "ic_edit_24px" }
+}
