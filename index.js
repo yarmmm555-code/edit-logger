@@ -1,6 +1,6 @@
 (function (exports) {
   const toast = (t) => { try { vendetta.ui.toasts.showToast(String(t)); } catch (e) {} };
-  const MARK = "\n\u200b\u200b";
+  const MARK = "\n\u200b\n";
   const hist = {};
   const clean = {};
   let unpatch = null;
@@ -8,8 +8,15 @@
   const strip = (s) => (typeof s === "string" ? s.split(MARK)[0] : s);
 
   const render = (list) =>
-    MARK + "> ✏️ قبل التعديل:\n" +
-    list.map((h) => "> " + String(h).replace(/\n/g, "\n> ")).join("\n> ───\n");
+    MARK + "```diff\n" +
+    list
+      .map((h) =>
+        String(h).replace(/```/g, "'''").split("\n").map((l, i, a) =>
+          "- " + l + (i === a.length - 1 ? " (edited)" : "")
+        ).join("\n")
+      )
+      .join("\n") +
+    "\n```";
 
   exports.onLoad = () => {
     try {
